@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.authors       = ["Mike Williams"]
   spec.email         = ["mdub@dogbiscuit.org"]
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mdub/console_logger"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.test_files    = spec.files.grep(%r{^test/})
