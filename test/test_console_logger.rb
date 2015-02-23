@@ -10,14 +10,7 @@ describe ConsoleLogger do
 
   let(:logger) { ConsoleLogger.new(output_stream) }
 
-  describe "#info" do
-    it "outputs a message" do
-      logger.info("message")
-      output.must_equal "message\n"
-    end
-  end
-
-  %w(debug warn error fatal).each do |level|
+  %w(debug info warn error fatal).each do |level|
 
     describe "##{level}" do
 

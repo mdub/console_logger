@@ -19,11 +19,7 @@ module ConsoleLogger
   class Formatter < ::Logger::Formatter
 
     def call(severity, time, progname, msg)
-      s = ""
-      unless severity == "INFO"
-        s << severity + ": "
-      end
-      s << msg.strip << "\n"
+      "#{severity}: #{msg.strip}\n"
     end
 
   end
