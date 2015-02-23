@@ -1,31 +1,21 @@
 # ConsoleLogger
 
-TODO: Write a gem description
+Logging is great.  But sometimes, you just want to write to STDOUT/STDERR.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'console_logger'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install console_logger
+ConsoleLogger provides a quick way to get a Logger optimised for console output.
 
 ## Usage
 
-TODO: Write usage instructions here
+Use it like this:
+
+    require 'console_logger'
+
+    logger = ConsoleLogger.new($stderr)
+    logger.info("something is about to happen")
+    # => INFO: something is about to happen
+    logger.warn("something went wrong!")
+    # => WARN: something went wrong!
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/console_logger/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+* It's on GitHub; you know the drill.
