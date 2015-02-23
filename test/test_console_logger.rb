@@ -1,17 +1,19 @@
-require 'console_logger'
-require 'stringio'
+require_relative "test_helper"
+
+require "console_logger"
+require "stringio"
 
 describe ConsoleLogger do
 
   let(:output) { "" }
   let(:output_stream) { StringIO.new(output) }
 
-  let(:logger) { described_class.new(output_stream) }
+  let(:logger) { ConsoleLogger.new(output_stream) }
 
   describe "#info" do
     it "outputs a message" do
       logger.info("message")
-      expect(output).to eq "message\n"
+      output.must_equal "message\n"
     end
   end
 
@@ -25,7 +27,7 @@ describe ConsoleLogger do
 
       it "prepends #{level.upcase} to the message" do
         logger.send(level, "message")
-        expect(output).to eq "#{level.upcase}: message\n"
+        output.must_equal "#{level.upcase}: message\n"
       end
 
     end
@@ -34,17 +36,17 @@ describe ConsoleLogger do
 
   describe "#level" do
     it "defaults to INFO" do
-      expect(logger.level).to eq Logger::INFO
+      logger.level.must_equal Logger::INFO
     end
   end
 
-  context "verbose" do
+  describe "verbose" do
 
-    let(:logger) { described_class.new(output_stream, true) }
+    let(:logger) { ConsoleLogger.new(output_stream, true) }
 
     describe "#level" do
       it "defaults to DEBUG" do
-        expect(logger.level).to eq Logger::DEBUG
+        logger.level.must_equal Logger::DEBUG
       end
     end
 
